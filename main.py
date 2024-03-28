@@ -1,5 +1,5 @@
 import functions_framework
 
 @functions_framework.http
-def hello_get(request):
+def function(request):
     return "Hello World!"

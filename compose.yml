@@ -1,6 +1,6 @@
 services:
   stream-extractor:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     environment:
@@ -8,3 +8,5 @@ services:
     volumes:
       - .:/workspace
     command: sleep infinity
+    ports:
+      - "8080:8080"
