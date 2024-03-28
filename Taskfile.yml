@@ -1,0 +1,20 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - docker compose build
+  up:
+    cmds:
+      - docker compose up -d
+  down:
+    cmds:
+      - docker compose down
+  destroy:
+    cmds:
+      - docker compose down --volumes --rmi all --remove-orphans
+  launch-*:
+    vars:
+      FUNCTION_TARGET: '{{index .MATCH 0}}'
+    cmds:
+      - docker compose exec workspace functions_framework --target={{.FUNCTION_TARGET}}

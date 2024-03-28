@@ -1,0 +1,10 @@
+services:
+  stream-extractor:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      PYTHONPATH: /workspace
+    volumes:
+      - ..:/workspace
+    command: sleep infinity
