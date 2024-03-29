@@ -1,10 +1,12 @@
 services:
   stream-extractor:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     environment:
       PYTHONPATH: /workspace
     volumes:
-      - ..:/workspace
+      - .:/workspace
     command: sleep infinity
+    ports:
+      - "8080:8080"

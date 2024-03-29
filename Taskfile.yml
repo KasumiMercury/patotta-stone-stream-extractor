@@ -13,8 +13,9 @@ tasks:
   destroy:
     cmds:
       - docker compose down --volumes --rmi all --remove-orphans
-  launch-*:
-    vars:
-      FUNCTION_TARGET: '{{index .MATCH 0}}'
+  launch:
     cmds:
-      - docker compose exec workspace functions_framework --target={{.FUNCTION_TARGET}}
+      - docker compose exec stream-extractor functions_framework --target=function
+  bash:
+    cmds:
+      - docker compose exec stream-extractor bash
