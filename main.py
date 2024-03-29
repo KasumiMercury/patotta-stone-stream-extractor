@@ -8,7 +8,10 @@ def function(request):
     if vid is None:
         raise RuntimeError("No vid provided")
     
-    return "Hello World!"
+    stream = extract_stream(vid)
+    stream_url = stream.get("url")
+    
+    return stream_url
 
 def extract_stream(vid):
     # Extract video streams metadata from Youtube
